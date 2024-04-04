@@ -55,6 +55,10 @@ func main() {
 	// Routes
 	e.GET("/", hello)
 
+	e.GET("/health", func(c echo.Context) error {
+		return c.String(200, "OK")
+	})
+
 	e.GET("/books", GetBooks)
 
 	e.POST("/books", CreateBook)
